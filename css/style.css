@@ -1,0 +1,95 @@
+.clock{
+  --size: 90vh;
+
+  position: relative;
+
+  display: flex;
+  border: calc(var(--size) * 0.01) solid black;
+  height: var(--size);
+  width: var(--size);
+  margin: calc(var(--size) * 0.047) auto;
+  border-radius: 50%;
+}
+
+.clock_mark {
+  --mark-width: calc(var(--size) * 0.007);
+  --mark-height: calc((var(--size) / 2) * 0.07);
+  --align-center: calc(50% - var(--mark-width));
+
+  position: absolute;
+
+  border: var(--mark-width) solid black;
+}
+
+.clock_mark-vertical {
+  height: var(--mark-height);
+  width: 0;
+}
+
+.clock_mark-horisont {
+  height: 0;
+  width: var(--mark-height);
+}
+
+.clock_mark-0-hour{
+  top: 0;
+  left: var(--align-center);
+}
+
+.clock_mark-3-hour{
+  top: var(--align-center);
+  right: 0;
+}
+
+.clock_mark-6-hour{
+  bottom: 0;
+  left: var(--align-center);
+}
+
+.clock_mark-9-hour{
+  top: var(--align-center);
+  left: 0;
+}
+
+.clock_hand {
+  --rotate: 0deg;
+  --color: black;
+  --hand-length: 0.5;
+  --hand-width: calc(var(--size) * 0.01);
+
+  position: absolute;
+  top: 50%;
+
+  right: calc(50% - var(--hand-width));
+  transform-origin: var(--hand-width) 0px 0px;
+
+  height: 1px;
+  width: 1px;
+
+  transform: rotate(var(--rotate));
+
+  border: var(--hand-width) solid transparent;
+  border-top: calc((var(--size) / 2) * var(--hand-length)) solid var(--color);
+}
+
+.clock_hand-hour {
+  --hour: 70deg;
+
+  --rotate: var(--hour);
+  --hand-length: 0.6;
+}
+
+.clock_hand-minute {
+  --minute: 80deg;
+
+  --rotate: var(--minute);
+  --hand-length: 0.7;
+}
+
+.clock_hand-second {
+  --second: 90deg;
+
+  --rotate: var(--second);
+  --hand-length: 0.8;
+  --color: red;
+}
